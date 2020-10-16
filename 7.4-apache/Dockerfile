@@ -19,5 +19,8 @@ RUN set -eux; \
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg
 RUN docker-php-ext-install gd mysqli pdo_mysql zip opcache intl
 
+# Install xdebug (but not enable).
+RUN pecl install xdebug
+
 # Install composer.
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
